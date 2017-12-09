@@ -1,0 +1,63 @@
+﻿.pmht-body {
+	margin: 0;
+	background-color: #FFFFFF;
+	color: #3F3F3F;
+}
+.pmht-mui-bar-nav {
+	background-color: #0067D8;
+	box-shadow: 0px 1px 0px #0067D8;
+	-webkit-box-shadow: 0px 1px 0px #0067D8;
+}
+.pmht-mui-bar-nav .mui-pull-left {
+	color: #FFFFFF;
+	padding-right: 25px !important;
+	border-top: 1px solid #0067D8;
+}
+.pmht-mui-bar-nav .mui-title {
+	right: 60px;
+	left: 60px;
+	color: #FFFFFF;
+	font-weight: 500;
+	border-top: 1px solid #0067D8;
+}
+#pmhtGrid9Content {
+	padding-bottom: 50px;
+	background-color: #FFFFFF;
+}
+.pmht-mui-bar-tab {
+	background-color: #FAFBFE;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-top: 1px solid #f1f1f1;
+}
+.mui-grid-view.mui-grid-9 {
+	background-color: #FFFFFF;
+}
+.mui-grid-view.mui-table-view {
+	top: 1px;
+	background-color: #FFFFFF;
+}
+.mui-grid-view.mui-table-view:before {
+	background-color: #FFFFFF;
+}
+.mui-grid-view.mui-table-view:after {
+	background-color: #FFFFFF;
+}
+.mui-grid-view .mui-table-view-cell {
+	height: 125px;
+	border: none !important;
+}
+.mui-grid-view .mui-table-view-cell a {
+	top: 8px;
+}
+.mui-grid-view .mui-table-view-cell .mui-media-body {
+	margin-top: 15px !important;
+}
+.mui-grid-view .mui-media .fa.fa-2x {
+	color: #4287D5;
+}
+.mui-grid-view .mui-media .fa.fa-2x .mui-badge {
+	position: absolute;
+	margin-left: -5px;
+	font-size: 10px;
+}

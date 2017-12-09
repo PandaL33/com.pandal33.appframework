@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>起始页</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<script src="js/pcomm/pagecommon.js" type="text/javascript" charset="UTF-8"></script>
+		<style type="text/css">
+			html, body {
+				margin: 0;
+				height: 100%;
+			}
+			body {
+				background-color: #F5F5F5;
+			}
+			.pi-loading-mag {
+				font-size: 0.9rem; 
+				text-align: center;
+				padding-top: 40%;
+				color: #5F7FB0;
+				overflow: hidden;
+			}
+			.pi-loading-marquee {
+				width: 2000px;
+				height: 2px;
+				background-color: #3B7EEE;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pi-loading-mag">
+			app应用初始化...
+			<marquee scrollamount="28" scrolldelay="0" direction="right" height="2px" hspace="15%" vspace="20">
+				<div class="pi-loading-marquee">
+				</div>
+			</marquee>
+		</div>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			
+			mui.plusReady(function() {
+				
+				//仅支持竖屏显示
+				plus.screen.lockOrientation("portrait-primary");
+				var runtimeVersion = plus.runtime.version;
+				var storageVersion = plus.storage.getItem("FirstTimeFlag");
+				var userContext = new YTHUserContext();
+				var userContextVal = userContext.GetUserContext();
+				var tagetPage;
+				
+				//如果没有保存登录状态自动登录，则清除历史用户数据并重新获取UserContext
+				if(!userContextVal.AutoLogin) {
+					userContext.ClearUserContext();
+					userContextVal = userContext.GetUserContext();
+				}
+				
+				//导航
+				if(runtimeVersion != storageVersion) {
+					//新版本，打开欢迎页
+					tagetPage = "welcome";
+				} else if (!Boolean(userContextVal.Token)) {
+					//未登录，打开登录页
+					tagetPage = "login";
+				} else {
+					//直接进入首页
+					tagetPage = "hometab";
+				}
+				var tagetWebView = mui.preload({
+					url: "page/pmain/" + tagetPage + ".html",
+					id: "pmain-" + tagetPage,
+					styles: { scrollIndicator: "none" }
+				});
+								
+				//预载页面 loaded 后再关闭启动界面
+				tagetWebView.onloaded = function(e) {
+					setTimeout(function() {
+						tagetWebView.show("none", 0, function() {
+							//提示么有网络
+							if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE) mui.alert("亲，没有网络连接哦！");
+							//登录页、首页退出全屏
+							if(tagetPage == "login" || tagetPage == "hometab") plus.navigator.setFullscreen(false);
+							//关闭启动页
+							plus.navigator.closeSplashscreen();
+							//系统初始化时预加载2级默认子页母版，3级及以上按需预载
+							var ythow = new YTHOpenWindow("page/pmain/submasterdefpre.html");
+							ythow.PreloadSubMasDef("1");//1级窗体
+							ythow.PreloadSubMasDef("2");//2级窗体
+							ythow.PreloadSubMasDef("3");//3级窗体					
+						});
+					}, 50);
+				};
+			});
+			
+			//返回键，1秒内，连续两次按返回键，退出应用
+			var bqa = new YTHBackQuitApp();
+			mui.back = function() {
+				bqa.QuitApp();
+			};
+		</script>		
+	</body>
+</html>

@@ -1,0 +1,94 @@
+﻿html,
+body {
+	margin: 0;
+	height: 100%;
+}
+body {
+	background: radial-gradient(50% 30%, ellipse, #F2F6FA, #B8D6EF);
+	background: -webkit-radial-gradient(50% 30%, ellipse, #F2F6FA, #B8D6EF);
+}
+.pml-content {
+	width: 90%;
+	height: 98%;
+	text-align: left;
+}
+.pml-content-head-title {
+	height: 200px;
+	background-image: url(../../imgs/page/login_logo.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 60% auto;
+	background-size: auto 60%;
+}
+.pml-content-body-input {
+	vertical-align: top;
+}
+.pml-content-body-input .mui-card {
+	border: 1px solid #bcddf9;
+	border-radius: 3px;
+}
+.mui-input-group .mui-input-row {
+	left: -8px;
+}
+.mui-input-group .mui-input-row label {
+	margin-left: 5px;
+	width: 50px;
+}
+.mui-input-group .mui-input-row .mui-icon {
+	color: #bcddf9;
+	margin-top: -2px;
+}
+.mui-input-group .mui-input-row input {
+	float: left;
+	color: #5F9CD0;
+}
+.mui-input-group .mui-input-row:after {
+	background-color: #bcddf9;
+}
+.pml-content-body-ss {
+	margin-top: 3px;
+	padding-left: 6px;
+}
+.pml-content-body-ss .mui-checkbox {
+	float: left;
+}
+.pml-content-body-ss .mui-checkbox label {
+	font-size: 0.9rem;
+	color: #707F8C;
+	margin-top: 1px;
+	padding-left: 50px;
+}
+.pml-content-body-ss .pml-mui-guide-link {
+	float: right;
+	padding-right: 10px;
+	margin-top: 2px;
+	font-size: 0.9rem;
+}
+.pml-content-body-ss .pml-mui-guide-link button {
+	color: #707F8C;
+}
+.pml-content-body-btn {
+	margin-top: 50px;
+	text-align: center;
+}
+.pml-content-body-btn p {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.pml-content-body-btn #pmlGoLogin {
+	text-indent: 30px;
+	letter-spacing: 30px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #FFFFFF;
+	background-color: #3B7EEE;
+	border-color: #3B7EEE;
+}
+.pml-content-body-btn #pmlGoPreview {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #3B7EEE;
+	background-color: #FCFCFC;
+	border-color: #FFFFFF;
+	display: none;
+}
